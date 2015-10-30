@@ -1,0 +1,8 @@
+[1;41m			FBI Warning [0m
+[1;37m   Federal law provides severe civil  and criminal penalties
+for the unauthorized reproduction,distribution,or exhibition 
+of copyrighted motion prictures(Title 17, United States Code, 
+Sections 501 and 508). The federal bureau of Investigation 
+investigate allegations of criminal copyright infringement.
+(Title 17, United States Code, Section 506)
+[0m
