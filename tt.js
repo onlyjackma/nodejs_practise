@@ -11,4 +11,5 @@ console.log(id);
 function tt(){
 	return 12;
 }
+
 console.log(tt());
