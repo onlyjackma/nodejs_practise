@@ -27,6 +27,7 @@ function help(){
 	console.log("	1 Set ID Like This #ID:12345");
 	console.log("	2 Set Name Like This #NAME:jack stolen");
 	console.log("	3 User Command #LOGIN To Login To Server!");
+	console.log("	4 User Command @id To Prepare To Talk With @id");
 }
 
 help();
