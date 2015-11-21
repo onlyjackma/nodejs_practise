@@ -1,4 +1,5 @@
 var net = require('net');
+//var moment = require('moment');
 
 var server  = net.createServer();
 server.listen(9000);
@@ -33,14 +34,34 @@ server.on('connection',function(client){
 		console.log("data:"+data);
 		//var tobj = JSON.parse(data);
 		if(data){
-			client.write(JSON.stringify(exp_data));
+			var devmsg = JSON.parse(data);
+			if(devmsg['type'] != undefined && devmsg['type'] == "register"){
+					client.sn = devmsg['sn'];
+					clients[devmsg['sn']] = client;
+
+			}else if(devmsg['type'] != undefined && devmsg['type'] == "msg"){
+				exp_data['datas'][1]['temp'] = new Date();
+				client.write(JSON.stringify(exp_data));
+			}
 		}
 		
 	});
-
+	
 	client.on('end',function(){
 		console.log("client closed");
-		
+		clients[client.sn] = null;
+		delete clients[client.sn];
 	});
+
+	client.on('error',function(err){
+		console.log("client error "+err);
+		clients[client.sn] = null;
+		delete clients[client.sn];
+	});
+
+});
+
+server.on('error',function(err){
+	console.log(err);
 
 });
